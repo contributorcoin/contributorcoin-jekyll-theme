@@ -1,5 +1,12 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .main-content {
   background-color: white;
+  flex: 1 1 0%;
   padding: calc(2 * #{$global--spacing-vertical}) $global--spacing-horizontal;
   position: relative;
   z-index: 1;
@@ -38,6 +45,7 @@
 
   h3 {
     display: none;
+    margin-bottom: 1rem;
     margin-top: 0;
 
     @include media(desktop) {
@@ -103,6 +111,7 @@
 
   h4 {
     display: none;
+    margin-bottom: 1rem;
     margin-top: 0;
 
     @include media(desktop) {
@@ -113,7 +122,11 @@
   ul {
     font-size: .9rem;
     list-style: none;
-    padding-left: calc(.25 * #{$global--spacing-horizontal});
+    padding-left: 0;
+
+    ul {
+      padding-left: calc(.25 * #{$global--spacing-horizontal});
+    }
 
     li {
       margin: calc(.5 * #{$global--spacing-vertical}) 0;

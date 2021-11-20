@@ -1,5 +1,6 @@
 ---
-layout: default
+title: Nested Page
+description: This is a nested page
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.

@@ -1,7 +1,9 @@
 .site-footer {
   background-color: $color--primary;
+  bottom: 0;
   color: $color--primary-lt;
   padding: calc(1.5 * #{$global--spacing-vertical}) calc(2 * #{$global--spacing-horizontal});
+  position: sticky;
   text-align: center;
 
   a {

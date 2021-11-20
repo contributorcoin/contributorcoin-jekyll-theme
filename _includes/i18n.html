@@ -1,14 +1,14 @@
-{% if site.i18n %}
-    {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+{% if site.i18n and page.lang_ref %}
+    {% assign posts=site.posts | where:"lang_ref", page.lang_ref | sort: 'lang' %}
     {% if posts.size == 0 %}
-        {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+        {% assign posts=site.pages | where:"lang_ref", page.lang_ref | sort: 'lang' %}
     {% endif %}
     {% if posts.size > 1 %}
     <footer class="lang-options">
-        <em>Read this page in a different language:</em>
+        <em>Also available in:</em>
         <ul>
         {% for post in posts %}
-          {% if post.lang %}
+          {% if post.lang and post.lang != page.lang %}
           <li>
             <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">
               {% if site.data.languages[post.lang].label %}
