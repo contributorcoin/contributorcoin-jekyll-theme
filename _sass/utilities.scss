@@ -1,0 +1,28 @@
+.btn {
+  @include btn;
+}
+
+.btn-sm {
+  font-size: .75rem;
+  padding: calc(.25 * #{$global--spacing-vertical}) calc(.5 * #{$global--spacing-horizontal});
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+.btn-primary-lt {
+  @include btn-primary-lt;
+}
+
+.btn-black {
+  @include btn-black;
+}
+
+.btn-group {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(.75 * #{$global--spacing-horizontal});
+  justify-content: center;
+}

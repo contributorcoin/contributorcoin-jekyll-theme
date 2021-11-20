@@ -1,0 +1,44 @@
+<button class="btn btn-black toggle-next">
+  {{ site.data.global-menu.menu_title | default: 'Menu' }} ▾
+</button>
+
+<nav>
+    <h3>{{ site.data.global-menu.menu_title | default: 'Menu' }}</h3>
+  <ul>
+    <!-- {{page.url | replace: ".html", ""}} -->
+    {% for item in site.data.global-menu.menu_items %}
+      <li>
+        <div class="menu-item">
+          <a href="{{ item.url }}">{{ item.title }}</a>
+
+          {% if item.submenu %}
+          <button class="toggle-next">▾</button>
+          
+          <ul>
+            {% for subitem in item.submenu %}
+            <li>
+              <div class="menu-item">
+                <a href="{{ subitem.url }}">{{ subitem.title }}</a>
+
+                {% if subitem.submenu %}
+                <button class="toggle-next">▾</button>
+                
+                <ul>
+                  {% for subsubitem in subitem.submenu %}
+                    <li>
+                      <a href="{{ subsubitem.url }}">{{ subsubitem.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+                
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

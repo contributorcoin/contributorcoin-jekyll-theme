@@ -1,0 +1,10 @@
+.site-footer {
+  background-color: $color--primary;
+  color: $color--primary-lt;
+  padding: calc(1.5 * #{$global--spacing-vertical}) calc(2 * #{$global--spacing-horizontal});
+  text-align: center;
+
+  a {
+    color: $color--primary-lt;
+  }
+}

@@ -1,0 +1,10 @@
+{% if site.show_toc %}
+<button class="btn btn-black toggle-next">
+  {{ site.toc_title | default: 'On this page' }} ▾
+</button>
+
+<nav>
+  <h4>{{ site.toc_title | default: 'On this page' }}</h4>
+  {% include toc.html html=content %}
+</nav>
+{% endif %}

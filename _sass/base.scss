@@ -1,0 +1,39 @@
+body {
+  background-color: $color--primary;
+  width: 100%;
+}
+
+#skip-to-content {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  top: -10px;
+
+  &:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: auto;
+    width: auto;
+    background: invert($link--color);
+    outline: thick solid invert($link--color);
+  }
+}
+
+a {
+  color: $link--color;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}

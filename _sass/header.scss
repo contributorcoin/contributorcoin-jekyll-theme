@@ -1,0 +1,35 @@
+.page-header {
+  background-color: $color--primary;
+  color: $color--primary-lt;
+  padding: calc(3 * #{$global--spacing-vertical}) calc(2 * #{$global--spacing-horizontal});
+  position: sticky;
+  text-align: center;
+  top: 0;
+  z-index: 0;
+
+  a {
+    color: $color--primary-lt;
+  }
+
+  .project-name {
+    font-size: 2.5rem;
+    margin-bottom: calc(1.15 * #{$global--spacing-vertical});
+    
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .project-tagline {
+    font-weight: 400;
+    margin-bottom: calc(1.25 * #{$global--spacing-vertical});
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

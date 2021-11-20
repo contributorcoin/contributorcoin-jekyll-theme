@@ -1,0 +1,84 @@
+$color--primary: #160f29;
+$color--primary-lt: #cdabd1;
+
+$link--color: rgba($color--primary, .75);
+
+$global--spacing-horizontal: 2rem;
+$global--spacing-vertical: 1.5rem;
+
+
+$breakpoint_sm: 482px;
+$breakpoint_md: 592px;
+$breakpoint_lg: 652px;
+$breakpoint_xl: 822px;
+$breakpoint_xxl: 1024px;
+
+// Responsive breakpoints mixin
+@mixin media( $res ) {
+
+  @if mobile == $res {
+    @media only screen and (min-width: #{$breakpoint_sm}) {
+      @content;
+    }
+  }
+
+  @if tablet == $res {
+    @media only screen and (min-width: #{$breakpoint_md}) {
+      @content;
+    }
+  }
+
+  @if laptop == $res {
+    @media only screen and (min-width: #{$breakpoint_lg}) {
+      @content;
+    }
+  }
+
+  @if desktop == $res {
+    @media only screen and (min-width: #{$breakpoint_xl}) {
+      @content;
+    }
+  }
+
+  @if wide == $res {
+    @media only screen and (min-width: #{$breakpoint_xxl}) {
+      @content;
+    }
+  }
+}
+
+@mixin btn {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  display: inline-flex;
+  font-weight: 600;
+  gap: calc(.25 * #{$global--spacing-vertical});
+  padding: calc(.5 * #{$global--spacing-vertical}) calc(.75 * #{$global--spacing-horizontal});
+  text-decoration: none;
+  transition: background-color ease 300ms;
+}
+
+@mixin btn-primary {
+  background-color: rgba($color--primary, .1);
+
+  &:hover {
+    background-color: rgba($color--primary, .15);
+  }
+}
+
+@mixin btn-primary-lt {
+  background-color: rgba($color--primary-lt, .1);
+
+  &:hover {
+    background-color: rgba($color--primary-lt, .15);
+  }
+}
+
+@mixin btn-black {
+  background-color: rgba(black, .1);
+
+  &:hover {
+    background-color: rgba(black, .15);
+  }
+}
