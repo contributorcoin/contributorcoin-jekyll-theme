@@ -3,8 +3,19 @@ description: GitHub Pages Jekyll template for Contributorcoin docs.
 show_downloads: true
 show_gh_edit: true
 show_toc: true
-google_analytics:
+google_analytics: 
 toc_title: 
+i18n: true
+
+plugins:
+  - jekyll-redirect-from
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
 
 theme: contributorcoin-jekyll-theme
 github:

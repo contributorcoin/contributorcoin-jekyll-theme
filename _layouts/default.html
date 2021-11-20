@@ -11,6 +11,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
+    {% if site.i18n %}
+      {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+      {% if posts.size == 0 %}
+        {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+      {% endif %}
+      {% if posts.size > 1 %}
+        {% for post in posts %}
+          {% if post.lang and post.lang != page.lang %}
+    <link rel="alternate" hreflang="{{post.lang}}" href="{{ site.base-url }}{{ post.url }}" />
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endif %}
   </head>
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
@@ -23,13 +36,15 @@
           {% if page.url != '/' %}</a>{% endif %}
         </h1>
         <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
-        {% if site.github.is_project_page %}
-          <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-        {% endif %}
-        {% if site.show_downloads %}
+        {% if site.show_downloads or site.github.is_project_page %}
           <div class="btn-group">
-            <a href="{{ site.github.zip_url }}" class="btn btn-primary-lt">Download .zip</a>
-            <a href="{{ site.github.tar_url }}" class="btn btn-primary-lt">Download .tar.gz</a>
+            {% if site.github.is_project_page %}
+              <a href="{{ site.github.repository_url }}" class="btn btn-primary-lt">View on GitHub</a>
+            {% endif %}
+            {% if site.show_downloads %}
+              <a href="{{ site.github.zip_url }}" class="btn btn-primary-lt">Download .zip</a>
+              <a href="{{ site.github.tar_url }}" class="btn btn-primary-lt">Download .tar.gz</a>
+            {% endif %}
           </div>
         {% endif %}
       </header>
@@ -44,6 +59,7 @@
           </aside>
           <div id="content" class="page-content">
             {{ content }}
+            {% include i18n.html %}
             {% include gh-edit-btn.html %}
           </div>
         </div>

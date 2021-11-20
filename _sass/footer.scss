@@ -8,3 +8,24 @@
     color: $color--primary-lt;
   }
 }
+
+.lang-options {
+  font-size: .85rem;
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: .5rem -5px 0;
+    padding: 0;
+  }
+
+  a {
+    align-items: center;
+    display: flex;
+    margin: 0 5px;
+  }
+
+  .emoji-icon {
+    font-size: 1.2rem;
+  }
+}
