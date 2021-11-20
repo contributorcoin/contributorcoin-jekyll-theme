@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = "contributorcoin-jekyll-theme"
-  s.version       = "0.1.2"
+  s.version       = "0.1.1"
   s.license       = "MIT"
   s.authors       = ["Morgan Spencer", "Contributorcoin"]
   s.email         = ["hello@contributorcoin.com"]
